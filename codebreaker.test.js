@@ -1,9 +1,9 @@
-const cal = require('./codebreaker'); //Arrange
+const cb = require('./codebreaker'); //Arrange
 
 describe('guess', () => {
   var codebreaker
   beforeAll(function() {
-    codebreaker = new cal.CodeBreaker("1234")
+    codebreaker = new cb.CodeBreaker("1234")
   });
 
   test('guess the correct answer', () => {
@@ -35,4 +35,12 @@ describe('guess', () => {
     var value = codebreaker.guess("5214"); //Act
     expect(value).toBe("xx-"); //Assert
   });
-}); 
+});
+
+describe('constuctor', () => {
+  test('constructor with no parameter', () => {
+    const obj = new cb.CodeBreaker();
+    expect(typeof obj.secret).toBe("string");
+    expect(obj.secret.length).toBe(4);
+  });
+});
