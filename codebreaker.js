@@ -17,6 +17,11 @@ class CodeBreaker {
     })
     return response.sort().reverse().join("")
   }
+
+  setSecret(secret){
+    this.secret = secret
+    return this.secret
+}
 }
 
 module.exports.CodeBreaker = CodeBreaker;
